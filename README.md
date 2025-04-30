@@ -1,7 +1,7 @@
 # ansible-role-apt-sources-list
 ![License](https://img.shields.io/github/license/jamescherti/ansible-role-apt-sources-list)
 
-This ansible role manages the APT proxy configuration and updates the `/etc/apt/sources.list` for Debian and Ubuntu systems. It optionally configures community and non-free repositories and supports backports on Debian.
+This ansible role manages the APT proxy configuration and updates the `/etc/apt/sources.list` for Debian and Ubuntu systems.
 
 ## Role variables
 
