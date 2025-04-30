@@ -25,16 +25,16 @@
 #
 
 - name: Create file /etc/apt/apt.conf.d/99proxy
+  when: ansible_os_family == "Debian" and apt_proxy is defined and apt_proxy != ""
   notify: apt-get update
   ansible.builtin.copy:
     dest: /etc/apt/apt.conf.d/99proxy
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
     content: |
       Acquire::http::proxy "{{ apt_proxy }}";
       Acquire::https::proxy "{{ apt_proxy }}";
-  when: ansible_os_family == "Debian" and apt_proxy is defined and apt_proxy != ""
 
 - name: Update /etc/apt/sources.list on Debian
   ansible.builtin.import_tasks: debian.yml

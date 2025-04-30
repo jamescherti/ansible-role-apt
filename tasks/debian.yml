@@ -29,7 +29,7 @@
 # contrib: free (but depends on non-free software)
 # non-free*: non free software
 #
-- name: update /etc/apt/sources.list
+- name: Update /etc/apt/sources.list
   notify: apt-get update
   ansible.builtin.copy:
     dest: /etc/apt/sources.list
@@ -41,7 +41,7 @@
       {% endfor %}
 
       {% for suffix in ["", "-src"] %}
-      {% if apt_debian_backports|bool %}
+      {% if apt_debian_backports | bool %}
       deb{{ suffix }} {{ apt_mirror_debian }} {{ apt_mirror_release }}-backports main{{ '' if not apt_community else ' contrib' }}{{ '' if not apt_nonfree else ' non-free non-free-firmware' }}
       {% else %}
       # deb{{ suffix }} {{ apt_mirror_debian }} {{ apt_mirror_release }}-backports main{{ '' if not apt_community else ' contrib' }}{{ '' if not apt_nonfree else ' non-free non-free-firmware' }}

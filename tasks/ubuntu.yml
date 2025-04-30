@@ -33,7 +33,7 @@
 #   - restricted: supported, not free
 #   - multiverse: not free
 #
-- name: update /etc/apt/sources.list
+- name: Update /etc/apt/sources.list
   notify: apt-get update
   ansible.builtin.copy:
     dest: /etc/apt/sources.list
