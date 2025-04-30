@@ -24,11 +24,6 @@
 # SOFTWARE.
 #
 
-- name: "Delete: /etc/apt/apt.conf.d/99proxy.conf"
-  ansible.builtin.file:
-    path: "/etc/apt/apt.conf.d/99proxy.conf"
-    state: absent
-
 - name: Create file /etc/apt/apt.conf.d/99proxy
   notify: apt-get update
   ansible.builtin.copy:

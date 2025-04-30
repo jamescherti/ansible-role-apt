@@ -25,4 +25,6 @@
 #
 
 - name: apt-get update
-  ansible.builtin.apt: update_cache=yes cache_valid_time=0
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 0
