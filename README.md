@@ -5,12 +5,21 @@ This ansible role manages the APT proxy configuration and updates the `/etc/apt/
 
 ## Role variables
 
+Important variables:
 | Variable                     | Description                           | Default                              |
 |------------------------------|---------------------------------------|--------------------------------------|
 | `apt_community`              | Enable community repositories         | true                                 |
 | `apt_nonfree`                | Enable non-free repositories          | true                                 |
 | `apt_debian_backports`       | Enable backports repository on Debian | false                                |
-| `apt_proxy`                  | Proxy URL for APT                     | ""                                   |
+
+
+Other variables:
+| Variable                     | Description                | Default                                   |
+|------------------------------|----------------------------|-------------------------------------------|
+| `apt_mirror_debian`          | Debian mirror URL          | `"http://deb.debian.org/debian"`          |
+| `apt_mirror_debian_security` | Debian security mirror URL | `"http://deb.debian.org/debian-security"` |
+| `apt_mirror_ubuntu`          | Ubuntu mirror URL          | `"http://archive.ubuntu.com/ubuntu"`      |
+| `apt_mirror_release`         | Release codename           | `{{ ansible_distribution_release }}`      |
 
 ## Author and license
 

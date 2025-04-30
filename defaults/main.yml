@@ -48,9 +48,8 @@ apt_debian_backports_packages: ""
 #
 # Mirrors
 #
-apt_mirror: http://deb.debian.org
-apt_mirror_debian: "{{ apt_mirror }}/debian"
-apt_mirror_debian_security: "{{ apt_mirror }}/debian-security"
-apt_mirror_ubuntu: "{{ apt_mirror }}/ubuntu"
+apt_mirror_debian: "http://deb.debian.org/debian"
+apt_mirror_debian_security: "http://deb.debian.org/debian-security"
+apt_mirror_ubuntu: "http://archive.ubuntu.com/ubuntu"
 
 apt_mirror_release: "{{ ansible_distribution_release }}"
