@@ -33,6 +33,9 @@
   notify: apt-get update
   ansible.builtin.copy:
     dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    mode: "0644"
     content: |
       {% for suffix in ["", "-src"] %}
       deb{{ suffix }} {{ apt_mirror_debian }} {{ apt_mirror_release }} main{{ '' if not apt_community else ' contrib' }}{{ '' if not apt_nonfree else ' non-free non-free-firmware' }}
