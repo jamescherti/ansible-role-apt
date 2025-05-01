@@ -25,31 +25,44 @@
 #
 
 #
-# apt_nonfree: add non free packages to "sources.list".
+# Add non free packages to "sources.list".
 #
-apt_nonfree: true
+apt_debian_nonfree: true
 
 #
-# apt_community: add community packages to "sources.list".
+# apt_debian_community: add community packages to "sources.list".
 #
-apt_community: true
-
-# Include deb-src (sources)
-apt_deb_src: false
+apt_debian_community: true
 
 #
 # debian backport
 #
 apt_debian_backports: false
 
-# Space separated list of packages that should be installed from the backport
+# Space-separated list of packages to install from the Debian backports
+# repository
 apt_debian_backports_packages: ""
+
+# Ubuntu
+#
+# Free:
+#   - main: officially supported by Canonical
+#   - universe: community
+# Non free:
+#   - restricted: supported, not free
+#   - multiverse: not free
+apt_ubuntu_universe: "{{ apt_debian_community }}"
+apt_ubuntu_multiverse: "{{ apt_debian_nonfree }}"
+
+# Include deb-src (sources)
+apt_deb_src: false
 
 #
 # Mirrors
 #
-apt_mirror_debian: "http://deb.debian.org/debian"
-apt_mirror_debian_security: "http://deb.debian.org/debian-security"
-apt_mirror_ubuntu: "http://archive.ubuntu.com/ubuntu"
+apt_mirror_url_debian: "http://deb.debian.org/debian"
+apt_mirror_url_debian_security: "http://deb.debian.org/debian-security"
+apt_mirror_url_ubuntu: "http://archive.ubuntu.com/ubuntu"
 
-apt_mirror_release: "{{ ansible_distribution_release }}"
+apt_mirror_debian_release: "{{ ansible_distribution_release }}"
+apt_mirror_ubuntu_release: "{{ ansible_distribution_release }}"

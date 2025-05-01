@@ -24,7 +24,6 @@
 # SOFTWARE.
 #
 
-#
 # Free:
 #   - main: officially supported by Canonical
 #   - universe: community
@@ -32,15 +31,14 @@
 # Non free:
 #   - restricted: supported, not free
 #   - multiverse: not free
-#
 - name: Update /etc/apt/sources.list
-  notify: apt-get update
+  notify: Apt-get update
   ansible.builtin.copy:
     dest: /etc/apt/sources.list
     owner: root
     group: root
     mode: "0644"
     content: |
-      deb {{ apt_mirror_ubuntu }} {{ apt_mirror_release }} main {{ '' if not apt_community else 'universe' }} {{ '' if not apt_nonfree else 'restricted multiverse' }}
-      deb {{ apt_mirror_ubuntu }} {{ apt_mirror_release }}-updates {{ '' if not apt_community else 'universe' }} main {{ '' if not apt_nonfree else 'multiverse' }}
-      deb {{ apt_mirror_ubuntu }} {{ apt_mirror_release }}-security main {{ '' if not apt_community else 'universe' }} {{ '' if not apt_nonfree else 'multiverse' }}
+      deb {{ apt_mirror_url_ubuntu }} {{ apt_mirror_debian_release }} main {{ '' if not apt_ubuntu_universe else 'universe' }} {{ '' if not apt_ubuntu_multiverse else 'restricted multiverse' }}
+      deb {{ apt_mirror_url_ubuntu }} {{ apt_mirror_debian_release }}-updates {{ '' if not apt_ubuntu_universe else 'universe' }} main {{ '' if not apt_ubuntu_multiverse else 'multiverse' }}
+      deb {{ apt_mirror_url_ubuntu }} {{ apt_mirror_debian_release }}-security main {{ '' if not apt_ubuntu_universe else 'universe' }} {{ '' if not apt_ubuntu_multiverse else 'multiverse' }}

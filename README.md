@@ -6,20 +6,19 @@ An Ansible role that manages the APT configuration and updates the `/etc/apt/sou
 ## Role variables
 
 Important variables:
-| Variable                     | Description                           | Default                              |
-|------------------------------|---------------------------------------|--------------------------------------|
-| `apt_community`              | Enable community repositories         | true                                 |
-| `apt_nonfree`                | Enable non-free repositories          | true                                 |
-| `apt_debian_backports`       | Enable backports repository on Debian | false                                |
-
+| Variable               | Description                                                                                    | Default |
+|------------------------|------------------------------------------------------------------------------------------------|---------|
+| `apt_debian_community` | Enables community repositories (Debian *contrib* and *main*, or Ubuntu *universe*)             | true    |
+| `apt_debian_nonfree`   | Enables non-free repositories (Debian *non-free*, *non-free-firmware*, or Ubuntu *multiverse*) | true    |
+| `apt_debian_backports` | Enables the backports repository on Debian (no effect on Ubuntu systems)                       | false   |
+| `apt_deb_src`          | Enables source package repositories (*deb-src* entries)                                        | false   |
 
 Other variables:
-| Variable                     | Description                | Default                                   |
-|------------------------------|----------------------------|-------------------------------------------|
-| `apt_mirror_debian`          | Debian mirror URL          | `"http://deb.debian.org/debian"`          |
-| `apt_mirror_debian_security` | Debian security mirror URL | `"http://deb.debian.org/debian-security"` |
-| `apt_mirror_ubuntu`          | Ubuntu mirror URL          | `"http://archive.ubuntu.com/ubuntu"`      |
-| `apt_mirror_release`         | Release codename           | `{{ ansible_distribution_release }}`      |
+| Variable                         | Description                | Default                                   |
+|----------------------------------|----------------------------|-------------------------------------------|
+| `apt_mirror_url_debian`          | Debian mirror URL          | `"http://deb.debian.org/debian"`          |
+| `apt_mirror_url_debian_security` | Debian security mirror URL | `"http://deb.debian.org/debian-security"` |
+| `apt_mirror_url_ubuntu`          | Ubuntu mirror URL          | `"http://archive.ubuntu.com/ubuntu"`      |
 
 ## Author and license
 
