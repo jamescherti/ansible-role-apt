@@ -38,15 +38,15 @@
     mode: "0644"
     content: |
       {% for suffix in ["", "-src"] %}
-      deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_mirror_debian_release }} main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
-      deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_mirror_debian_release }}-updates main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
-      deb{{ suffix }} {{ apt_mirror_url_debian_security }} {{ apt_mirror_debian_release }}-security main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
+      deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_distribution_codename }} main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
+      deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_distribution_codename }}-updates main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
+      deb{{ suffix }} {{ apt_mirror_url_debian_security }} {{ apt_distribution_codename }}-security main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
       {% endfor %}
 
       {% for suffix in ["", "-src"] %}
       {% if apt_debian_backports | bool %}
-      deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_mirror_debian_release }}-backports main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
+      deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_distribution_codename }}-backports main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
       {% else %}
-      # deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_mirror_debian_release }}-backports main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
+      # deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_distribution_codename }}-backports main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
       {% endif %}
       {% endfor %}
