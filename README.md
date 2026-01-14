@@ -24,7 +24,7 @@ Other variables:
 
 The *ansible-role-apt* role has been written by [James Cherti](https://www.jamescherti.com/) and is distributed under terms of the MIT license.
 
-Copyright (C) 2000-2025 James Cherti
+Copyright (C) 2000-2026 James Cherti
 
 Distributed under terms of the MIT license.
 
