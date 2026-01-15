@@ -52,6 +52,6 @@
       {% endfor %}
 
 - name: Import Tasks from debian_backport.yaml
-  when: apt_debian_backports_packages != ""
+  when: apt_debian_backports | bool and apt_debian_backports_packages != ""
   ansible.builtin.import_tasks: "debian_backport.yaml"
   tags: debian_backport

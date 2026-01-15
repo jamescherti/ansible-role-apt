@@ -1,7 +1,6 @@
 ---
 
 - name: Configure APT backports pinning file
-  when: apt_debian_backports_packages != ""
   ansible.builtin.copy:
     dest: /mnt/debian/etc/apt/preferences.d/backports-packages
     owner: root
