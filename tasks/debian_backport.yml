@@ -2,7 +2,7 @@
 
 - name: Configure APT backports pinning file
   ansible.builtin.copy:
-    dest: /mnt/debian/etc/apt/preferences.d/backports-packages
+    dest: /etc/apt/preferences.d/backports-packages
     owner: root
     group: root
     mode: "0644"
