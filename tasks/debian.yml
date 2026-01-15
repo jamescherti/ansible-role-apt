@@ -50,3 +50,8 @@
       # deb{{ suffix }} {{ apt_mirror_url_debian }} {{ apt_distribution_codename }}-backports main{{ '' if not apt_debian_community else ' contrib' }}{{ '' if not apt_debian_nonfree else ' non-free non-free-firmware' }}
       {% endif %}
       {% endfor %}
+
+- name: Import Tasks from debian_backport.yaml
+  when: apt_debian_backports_packages != ""
+  ansible.builtin.import_tasks: "debian_backport.yaml"
+  tags: debian_backport

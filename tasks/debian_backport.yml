@@ -1,0 +1,13 @@
+---
+
+- name: Configure APT backports pinning file
+  when: apt_debian_backports_packages != ""
+  ansible.builtin.copy:
+    dest: /mnt/debian/etc/apt/preferences.d/backports-packages
+    owner: root
+    group: root
+    mode: "0644"
+    content: |
+      Package: {{ apt_debian_backports_packages }}
+      Pin: release n=bookworm-backports
+      Pin-Priority: 990
