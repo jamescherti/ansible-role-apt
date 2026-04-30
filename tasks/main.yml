@@ -25,7 +25,7 @@
 #
 
 - name: Create file /etc/apt/apt.conf.d/99proxy
-  when: ansible_os_family == "Debian" and apt_proxy is defined and apt_proxy != ""
+  when: ansible_facts.os_family == "Debian" and apt_proxy is defined and apt_proxy != ""
   notify: Apt-get update
   ansible.builtin.copy:
     dest: /etc/apt/apt.conf.d/99proxy
