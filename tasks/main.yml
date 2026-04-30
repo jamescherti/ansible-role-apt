@@ -38,8 +38,8 @@
 
 - name: Update /etc/apt/sources.list on Debian
   ansible.builtin.import_tasks: debian.yml
-  when: ansible_distribution == 'Debian'
+  when: ansible_facts.distribution == 'Debian'
 
 - name: Update /etc/apt/sources.list on Ubuntu
   ansible.builtin.import_tasks: ubuntu.yml
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_facts.distribution == 'Ubuntu'
