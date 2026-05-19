@@ -6,6 +6,7 @@ The [ansible-role-apt](https://github.com/jamescherti/ansible-role-apt) Ansible 
 ## Role variables
 
 Important variables:
+
 | Variable               | Description                                                                                    | Default |
 |------------------------|------------------------------------------------------------------------------------------------|---------|
 | `apt_debian_community` | Enables community repositories (Debian *contrib* and *main*, or Ubuntu *universe*)             | true    |
@@ -14,6 +15,7 @@ Important variables:
 | `apt_deb_src`          | Enables source package repositories (*deb-src* entries)                                        | false   |
 
 Other variables:
+
 | Variable                         | Description                | Default                                   |
 |----------------------------------|----------------------------|-------------------------------------------|
 | `apt_mirror_url_debian`          | Debian mirror URL          | `"http://deb.debian.org/debian"`          |
